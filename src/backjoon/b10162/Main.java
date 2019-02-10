@@ -1,4 +1,4 @@
-package b10162;
+package backjoon.b10162;
 
 import java.util.Scanner;
 

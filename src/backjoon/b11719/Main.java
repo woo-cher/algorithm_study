@@ -1,4 +1,4 @@
-package b11719;
+package backjoon.b11719;
 
 import java.util.ArrayList;
 import java.util.List;

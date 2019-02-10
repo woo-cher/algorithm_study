@@ -1,4 +1,4 @@
-package b2493;
+package backjoon.b2493;
 
 import java.util.Scanner;
 

@@ -1,9 +1,9 @@
-package programers;
+package programmers.완주하지못한선수;
 
 import java.util.*;
 import java.util.concurrent.CopyOnWriteArrayList;
 
-public class 완주하지못한선수 {
+public class Main {
     public static void main(String[] args) {
         String[] s1 = {"marina", "josipa", "nikola", "vinko", "filipa"};
         String[] s2 = {"josipa", "filipa", "marina", "nikola"};

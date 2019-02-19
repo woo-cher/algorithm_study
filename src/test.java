@@ -4,11 +4,8 @@ import java.util.List;
 public class test {
     public static void main(String[] args) {
         String s = "12345";
-        String s2 = s;
-        s = s.substring(0, 3);
-        System.out.println(s);
-        System.out.println(s2);
-        return;
+        System.out.println(s.charAt(5));
+        System.out.println(s.length());
     }
 }
 

@@ -8,53 +8,56 @@ public class Main {
         String[] s1 = {"marina", "josipa", "nikola", "vinko", "filipa"};
         String[] s2 = {"josipa", "filipa", "marina", "nikola"};
 
-        System.out.println(sub2(s1, s2));
+        System.out.println(sub(s1, s2));
     }
 
+    // 통과
     public static String sub(String[] participant, String[] completion) {
-        String answer = "";
-        List<String> completionList = new CopyOnWriteArrayList<>(Arrays.asList(completion));
-        for (String p : participant) {
-            if (!completionList.contains(p)) {
-                answer = p;
-                break;
+        Arrays.sort(participant);
+        Arrays.sort(completion);
+        int i;
+        for(i = 0; i < completion.length; i++) {
+            if(!participant[i].equals(completion[i])) {
+                return participant[i];
             }
-            completionList.remove(p);
         }
-        return answer;
+        return participant[i];
     }
 
+    // 효율성 20점
     public static String sub2(String[] participant, String[] completion) {
         String answer = "";
-        List<String> pList = Arrays.asList(participant);
-        List<String> cList = Arrays.asList(completion);
-        Map<Integer, String> completionMap = new HashMap<>();
+        Map<Integer, String> cMap = new HashMap<>();
 
         Arrays.sort(participant);
         Arrays.sort(completion);
 
-        // initialize
-        int index = 0;
-        for (String c : cList) {
-            completionMap.put(index, c);
-            index++;
+        int i = 0;
+        for(String com : completion) {
+            cMap.put(i++, com);
         }
 
-        // parse
-        int i = 0;
-        for (String p : pList) {
-            if (!completionMap.containsValue(p)) {
-                answer = p;
+        int j = 0;
+        for(String joiner : participant) {
+            if(!cMap.containsValue(joiner)) {
+                answer = joiner;
                 break;
             }
-            if (i == 0 || p == completionMap.get(i)) {
-                completionMap.remove(i);
-            }
-            else if (pList.get(i) != cList.get(i-1)) {
-                answer = p;
+            cMap.remove(j++, joiner);
+        }
+
+        return answer;
+    }
+
+    // 효율성 Test 0
+    public static String sub3(String[] participant, String[] completion) {
+        String answer = "";
+        List<String> cList = new CopyOnWriteArrayList(Arrays.asList(completion));
+        for(String joiner : participant) {
+            if(!cList.remove(joiner)) {
+                answer = joiner;
                 break;
             }
-            i++;
         }
         return answer;
     }

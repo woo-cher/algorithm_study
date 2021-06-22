@@ -2,8 +2,11 @@ package programmers.level1.최대공약수와최소공배수;
 
 public class Main {
     public static void main(String[] args) {
-        int commonDivisor = getCommonDivisor(3, 12);
-        int commonMultiple = (3 * 12) / commonDivisor;
+        int n = 72;
+        int m = 30;
+
+        int commonDivisor = getCommonDivisor(n, m);
+        int commonMultiple = (n * m) / commonDivisor;
 
         System.out.println(commonDivisor + ", " + commonMultiple);
     }
@@ -20,7 +23,9 @@ public class Main {
     }
 
     /**
-     *  ref) 유클리드 호제법
+     *  - 유클리드 호제법
+     *
+     *  https://cheol-develop.tistory.com/3?category=971779
      */
     public static int getCommonDivisor(int n, int m) {
         if (m == 0) {

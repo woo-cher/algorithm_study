@@ -1,9 +1,9 @@
-package programmers.level2;
+package programmers.level2.단체사진찍기;
 
 /**
  * 순열 (permutation) 기법
  */
-public class 단체사진찍기 {
+public class Main {
     private static final int ALL_FRIENDS = 8;
     private static int cases = 40320; // 8!
 

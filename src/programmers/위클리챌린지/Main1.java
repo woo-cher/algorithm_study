@@ -1,4 +1,4 @@
-package programmers.level1.위클리챌린지;
+package programmers.위클리챌린지;
 
 // 위클리 챌린지 1주차
 public class Main1 {

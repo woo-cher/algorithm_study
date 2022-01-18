@@ -3,21 +3,24 @@ package programmers.level2.땅따먹기;
 import java.util.Arrays;
 
 public class Main {
+    // dp
     public static int solution(int[][] land) {
-        for (int i = 0; i < land.length - 1; i++) {
-            int[] next = land[i + 1];
+        int N = land.length;
 
-            land[0][0] += getMax(next[1], next[2], next[3]);
-            land[0][1] += getMax(next[0], next[2], next[3]);
-            land[0][2] += getMax(next[0], next[1], next[3]);
-            land[0][3] += getMax(next[0], next[1], next[2]);
+        for (int i = 1; i < N; i++) {
+            int[] prev = land[i - 1];
+
+            land[i][0] += getMax(prev[1], prev[2], prev[3]);
+            land[i][1] += getMax(prev[0], prev[2], prev[3]);
+            land[i][2] += getMax(prev[0], prev[1], prev[3]);
+            land[i][3] += getMax(prev[0], prev[1], prev[2]);
         }
 
-        return getMax(land[0][0], land[0][1], land[0][2], land[0][3]);
+        return Arrays.stream(land[N - 1]).max().orElse(-1);
     }
 
     public static int getMax(int... n) {
-        return Arrays.stream(n).max().orElse(-1);
+        return Math.max(n[0], Math.max(n[1], n[2]));
     }
 
     public static void main(String[] args) {

@@ -6,7 +6,8 @@ public class Main {
     public static void main(String[] args) {
 //        String s = "{{2},{2,1},{2,1,3,4},{2,1,3}}";
         String s = "{{4,2,3},{3},{2,3,4,1},{2,3,4,1,43},{2,3}}";
-        System.out.println(solution2(s));
+//        System.out.println(solution2(s));
+        System.out.println(solution2("{{4,2,3},{3},{2,3,4,1},{2,3}}"));
     }
 
     public static int[] solution(String s) {

@@ -2,16 +2,33 @@ package algorithm;
 
 public class Permutation {
     public static String[] input = {"A", "B", "C"};
+    public static int loop = 0;
 
     public static void main(String[] args) {
+//        for (int r = 1; r < input.length + 1; r++) {
+//            perWithDupl("", r, 0);
+//        }
+//        System.out.println("──────────────────────────────────────────────────────");
+
         for (int r = 1; r < input.length + 1; r++) {
-            perWithDupl("", r, 0);
+            permutation("", r, 0, new boolean[input.length]); // 1 ~ 3개 줄세울 때, loop 횟수 30 번
         }
 
-        System.out.println("──────────────────────────────────────────────────────");
+//        per("", new boolean[input.length]);
+        System.out.println(loop);
+    }
 
-        for (int r = 1; r < input.length + 1; r++) {
-            permutation("", r, 0, new boolean[input.length]);
+    public static void per(String s, boolean[] v) { // 1 ~ 3개 줄세울 때, loop 횟수 16 번
+        for (int i = 0; i < input.length; i++) {
+            if (!v[i]) {
+                v[i] = true;
+                per(s + input[i], v);
+                v[i] = false;
+            }
+        }
+
+        if (s.length() == 2) {
+            System.out.println(s);
         }
     }
 
